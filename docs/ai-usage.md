@@ -1,0 +1,93 @@
+# Shaverly — Registro de uso de IA na engenharia
+
+> Este documento registra contribuição da IA, decisão humana e fundamentos utilizados. Atualizado em 19/11/2026.
+
+## IA-001 — Descoberta dos atores que criam agendamentos
+
+- **Etapa:** descoberta de requisitos (antes de decidir arquitetura ou tecnologia).
+- **Contexto:** a visão do produto previa agendamentos sem esclarecer quem os realiza.
+- **Contribuição da IA:** identificou a ambiguidade e perguntou se o agendamento seria feito pelo cliente, pela barbearia ou por ambos.
+- **Decisão humana:** **ambos** — clientes e barbearia poderão criar agendamentos.
+- **Artefato resultante:** RF-001 em `docs/requirements.md`.
+- **Validação:** decisão explicitamente confirmada na conversa; critérios de aceitação ainda não foram produzidos, porque falta detalhar os fluxos.
+- **Relação com as aulas:**
+  - *Engineering Shared Understanding*, páginas 3, 5, 6 e 11: discovery antes de specification; usar IA para revelar ambiguidades (abordagem “Grill-Me”), sem transferir à IA a decisão sobre o domínio.
+  - *Aula 3 — Beyond the Code Factory*, páginas 2 e 4: começar pelo comportamento necessário, não por tarefas técnicas.
+- **Limitações e pendências:** a equipe não decidiu autenticação, autorização específica, edição, cancelamento nem disponibilidade.
+
+## IA-002 — Identificação no autoagendamento e agendamento em nome de clientes
+
+- **Etapa:** descoberta de requisitos.
+- **Contexto:** a questão inicial tratava apenas de obrigatoriedade de conta para o cliente. A resposta da equipe acrescentou um fluxo distinto para usuários autorizados da barbearia.
+- **Contribuição da IA:** apresentou alternativas para identificação do cliente no autoagendamento e separou, a partir da resposta humana, os comportamentos dos dois atores. Propôs critérios de aceitação preliminares e identificou a pendência sobre criação automática de cadastro.
+- **Decisão humana:** **confirmada** — o cliente que agenda por conta própria deve criar conta; a barbearia poderá agendar selecionando um cliente cadastrado ou informando nome completo e telefone.
+- **Artefatos resultantes:** RD-002, RF-002, RF-003 e RF-004 em `docs/requirements.md`.
+- **Validação:** decisão explicitamente formulada pela equipe; critérios de aceitação são preliminares e devem ser revisados antes de implementação.
+- **Relação com as aulas:**
+  - *Engineering Shared Understanding*, páginas 3, 5, 6 e 11: descoberta de ambiguidades, distinção entre descoberta e especificação e critérios de aceitação verificáveis.
+  - *Aula 3 — Beyond the Code Factory*, páginas 2, 4 e 5: descrição do comportamento antes das tarefas técnicas e possibilidade de entregas verticais.
+  - *Secure Systems Architecture*, página 5: diferenciar autenticação de autorização, sem assumir papéis internos não definidos.
+- **Limitações e pendências:** não foi decidido se dados digitados pela barbearia criam cadastro de cliente, como evitar duplicidade, quais são os perfis autorizados, nem como funcionará o login.
+- **Próximo passo (realizado em 19/11/2026):** Q-003 esclarecida na RD-003: cadastro reutilizável sem conta e histórico recuperável mediante associação futura.
+
+## IA-003 — Cadastro de cliente sem conta e reaproveitamento de histórico
+
+- **Etapa:** descoberta e modelagem do domínio.
+- **Contexto:** a equipe esclareceu que nome completo e telefone serão sempre obrigatórios, e que o cliente poderá criar uma conta após já existir histórico de serviços inserido por funcionários da barbearia.
+- **Contribuição da IA:** organizou o comportamento em requisitos e cenários de aceitação; distinguiu cadastro operacional de cliente de conta autenticável; identificou risco de exposição de histórico caso uma conta seja vinculada a um telefone sem comprovação de titularidade.
+- **Decisão humana:** **confirmada** — nome completo e telefone são obrigatórios; a barbearia pode cadastrar um cliente sem conta; históricos de serviços devem ser recuperáveis quando o cliente criar sua conta posteriormente usando o mesmo telefone.
+- **Recomendação da IA posteriormente aprovada na RD-004:** verificar a posse do telefone antes de associar e exibir o histórico. SMS ou WhatsApp foram aceitos como canais possíveis; detalhes da verificação e da política de vinculação ainda não foram definidos.
+- **Artefatos resultantes:** RD-003, RF-005 a RF-008 e cenários preliminares em `docs/requirements.md`.
+- **Validação:** baseia-se no requisito informado pela equipe. A especificação e os testes do mecanismo de vinculação ainda dependem da Q-004.
+- **Relação com as aulas:**
+  - *Engineering Shared Understanding*, páginas 6 a 8: critérios de aceitação, modelagem de domínio e linguagem ubíqua.
+  - *Secure Systems Architecture*, páginas 4 e 5: verificação de titularidade de recursos, distinção entre autenticação e autorização.
+  - *Architectural Feedback*, página 4: privilegiar testes de comportamento observável, inclusive cenários de associação correta e incorreta.
+- **Próximo passo (resolvido em RD-004):** Q-004 — confirmação por código via SMS ou WhatsApp antes de associar e consultar histórico.
+
+## IA-004 — Validação da posse do telefone para vincular histórico
+
+- **Etapa:** descoberta de requisitos e análise de segurança.
+- **Contexto:** a RD-003 prevê que uma conta recém-criada possa recuperar atendimentos cadastrados pela barbearia com o mesmo telefone. Isso poderia expor dados de terceiros se o número informado não fosse verificado.
+- **Contribuição da IA:** identificou o risco de associação indevida de histórico e apresentou alternativas de validação, incluindo código de confirmação por SMS ou WhatsApp; transformou a decisão em requisitos e critérios de aceitação preliminares.
+- **Decisão humana:** **confirmada** — comprovar a posse do número por código recebido por SMS ou WhatsApp **antes de vincular e visualizar o histórico anterior**.
+- **Separação entre fato e sugestão:** a equipe confirmou a necessidade e os canais possíveis. Não decidiu qual canal será prioritário, qual serviço será usado, nem regras de expiração, limitação de tentativas, números reciclados ou contas duplicadas.
+- **Artefatos resultantes:** RD-004, RF-009, RF-010 e cenários preliminares em `docs/requirements.md`.
+- **Validação:** decisão textualmente confirmada pela equipe; os critérios propostos ainda exigem revisão humana e testes automatizados quando implementados. Nenhum envio de código ou teste de software foi executado nesta etapa.
+- **Relação com as aulas:**
+  - *Secure Systems Architecture*, páginas 4 e 5: autorização e validação de acesso aos recursos pelo backend, não apenas presença de um telefone igual.
+  - *Engineering Shared Understanding*, páginas 5, 6 e 11: esclarecer ambiguidades com IA, transformar descobertas em requisitos testáveis e reservar a decisão de negócio às pessoas.
+  - *Architectural Feedback*, página 4: testar comportamento visível e proteção de dados sem acoplar os testes à implementação escolhida.
+- **Próximo passo:** Q-005 — esclarecer se a plataforma terá múltiplas barbearias independentes e, consequentemente, o escopo de seus dados e históricos.
+
+## IA-005 — Plataforma para múltiplas barbearias independentes
+
+- **Etapa:** descoberta de requisitos e delimitação do domínio multiestabelecimento.
+- **Contexto:** os requisitos anteriores citam cadastros de clientes, históricos e contas, mas não determinavam se a plataforma atenderia a um ou vários estabelecimentos independentes.
+- **Contribuição da IA:** apresentou a alternativa entre uma única barbearia e várias; organizou a opção escolhida em requisitos de separação dos dados; apontou a necessidade de verificar autorização entre estabelecimentos e a ambiguidade da relação entre **conta de acesso global** e **cadastro operacional de cliente por barbearia**. Propôs cenários preliminares de aceitação, sem escolher arquitetura.
+- **Decisão humana:** **confirmada** — haverá **múltiplas barbearias independentes**, cada qual com seus próprios profissionais, serviços, agendamentos e registros de clientes.
+- **Artefato resultante:** RD-005, RF-011 e RF-012 e cenários preliminares em `docs/requirements.md`.
+- **Validação:** a decisão de produto foi confirmada textualmente. Os cenários propostos pela IA ainda dependem de revisão pelos dois desenvolvedores; não foram implementados nem executados testes.
+- **Relação com as aulas:**
+  - *Engineering Shared Understanding*, páginas 7–8 e 11–12: modelagem do domínio, linguagem compartilhada e documentação contextual para agentes de IA.
+  - *Aula 6 — The Architecture of Change*, páginas 4 e 10: delimitação de fronteiras e responsabilidade pelos dados, sem confundir separação lógica com uma decisão tecnológica.
+  - *Secure Systems Architecture*, páginas 4–5: validação de acesso à informação conforme o estabelecimento autorizado.
+  - *Aula 1 — Software as a Product*, páginas 9 e 12: escolhas iterativas e escopo controlado.
+- **Pendências:** autenticação global vs. por estabelecimento; visibilidade do histórico para o próprio cliente; tratamento de telefones duplicados entre estabelecimentos; gestão de unidades e filiais; mecanismos concretos de isolamento.
+- **Próximo passo (resolvido na RD-006):** Q-006 — a equipe confirmou conta única de cliente utilizável em várias barbearias.
+
+## IA-006 — Conta global do cliente e cadastros locais por barbearia
+
+- **Etapa:** descoberta de requisitos e modelagem de identidade do usuário na plataforma.
+- **Contexto:** a RD-005 determinou que diferentes barbearias têm seus próprios profissionais, serviços, agendamentos e cadastros de clientes, mas não definiu se uma pessoa precisaria de contas distintas para agendar em estabelecimentos diferentes.
+- **Contribuição da IA:** identificou essa ambiguidade e apresentou duas alternativas: conta única ou conta por barbearia. Depois da resposta da equipe, distinguiu identidade global autenticável de cadastro operacional por estabelecimento, registrou implicações para isolamento de dados, propôs requisitos RF-013 e RF-014 e critérios de aceitação preliminares. A IA **não** escolheu arquitetura, tecnologia ou políticas de visualização dos históricos.
+- **Decisão humana:** **confirmada** — um cliente terá **uma única conta Shaverly**, válida para agendar em múltiplas barbearias; cada barbearia preserva a separação de seus dados administrativos.
+- **Artefatos resultantes:** RD-006, RF-013 e RF-014, cenários preliminares e Q-007 em `docs/requirements.md`.
+- **Validação:** a escolha funcional foi explicitamente confirmada pelo usuário. Os critérios de aceitação foram redigidos pela IA como propostas a revisar pelos dois desenvolvedores. Nenhum teste ou código foi executado para validar o comportamento.
+- **Relação com as aulas:**
+  - *Engineering Shared Understanding*, páginas 7–8 e 12: modelar comportamentos, dar nomes consistentes a conceitos diferentes e registrar o contexto em documentação compartilhada.
+  - *Secure Systems Architecture*, páginas 4–5: identidade autenticada não basta para autorizar acesso aos dados de uma barbearia; a autorização deve proteger os recursos no backend.
+  - *Aula 6 — The Architecture of Change*, páginas 4 e 10: preservar fronteiras de responsabilidade entre domínios e dados sem antecipar microsserviços ou segregação física de bancos.
+  - *Architectural Feedback*, página 4: futuros testes devem cobrir o uso da mesma conta em barbearias diferentes e a proteção dos registros administrativos.
+- **Pendências:** a forma de apresentação de históricos ao cliente; vinculação segura de registros operacionais locais e conta global; casos de números reciclados; mecanismos técnicos de autenticação e isolamento.
+- **Próximo passo:** Q-007 — decidir se o cliente verá seus próprios atendimentos de diferentes barbearias reunidos ou separados por estabelecimento.
