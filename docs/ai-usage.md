@@ -91,3 +91,12 @@
   - *Architectural Feedback*, página 4: futuros testes devem cobrir o uso da mesma conta em barbearias diferentes e a proteção dos registros administrativos.
 - **Pendências:** a forma de apresentação de históricos ao cliente; vinculação segura de registros operacionais locais e conta global; casos de números reciclados; mecanismos técnicos de autenticação e isolamento.
 - **Próximo passo:** Q-007 — decidir se o cliente verá seus próprios atendimentos de diferentes barbearias reunidos ou separados por estabelecimento.
+
+## Registro de organização de recursos e design — 21/11/2026
+
+- **Etapa:** organização documental e dos recursos de branding.
+- **Solicitação e decisão humana:** organizar as duas logos SVG e os modelos GLB; manter o bigode encaixando na logo como conceito principal selecionado; registrar a tesoura cortando a tela como animação futura em avaliação, sem aprovação para implementação.
+- **Contribuição da IA:** moveu os quatro arquivos para `assets/branding/`, padronizou os nomes das logos e documentou o conceito e as pendências técnicas fornecidos pela equipe em `docs/design/landing-animation.md`.
+- **Validação:** conteúdo dos quatro recursos preservado integralmente, verificado por SHA-256 antes e depois da movimentação. Os registros anteriores de uso da IA foram preservados.
+- **Limitações:** não foram inspecionadas nem modificadas geometrias, materiais, texturas ou animações; separação das lâminas, orientação, escala, origem, sincronização com máscara, responsividade, desempenho e alternativa para movimento reduzido permanecem pendentes.
+- **Escopo:** nenhuma animação, interface ou código de aplicação foi implementado; nenhuma dependência ou tecnologia foi adicionada. Este registro não confirma Q-007 dos requisitos.
