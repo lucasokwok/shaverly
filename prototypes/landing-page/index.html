@@ -11,12 +11,17 @@
   <script type="importmap">
     {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}
   </script>
+  <script src="palettes.js"></script>
   <script src="script.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#inicio">Pular para o conteúdo</a>
   <p class="scroll-hint" aria-hidden="true" hidden>Role para baixo para continuar.</p>
   <span class="sr-only" data-scroll-status role="status" aria-live="polite" aria-atomic="true"></span>
+  <div class="palette-switcher" data-palette-switcher hidden>
+    <label for="palette-select">Paleta</label>
+    <select id="palette-select" aria-label="Selecionar paleta de cores"></select>
+  </div>
   <main id="conteudo" tabindex="-1">
   <div class="opening" data-opening>
   <div class="opening-canvas" aria-hidden="true"></div>

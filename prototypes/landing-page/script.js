@@ -119,20 +119,22 @@
       let renderCount = 0, measureCount = 0, bufferResizes = 0;
       let canvasWidth = 0, canvasHeight = 0, canvasDpr = 0;
       const tintedMaterials = [];
-      const brandColor = new THREE.Color('#B7D894');
-      const dockColor = new THREE.Color('#202734');
+      const paletteColor = token => getComputedStyle(html).getPropertyValue(`--${token}`).trim();
+      const brandColor = new THREE.Color(paletteColor('accent'));
+      const dockColor = new THREE.Color(paletteColor('primary'));
       let measure = () => {};
       const scene = new THREE.Scene();
       const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, .1, 3000);
       camera.position.z = 1000;
       renderer.outputColorSpace = THREE.SRGBColorSpace;
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      renderer.setClearColor(0x202734, 0);
+      renderer.setClearColor(dockColor, 0);
       canvasHost.append(renderer.domElement);
-      scene.add(new THREE.HemisphereLight(0xE0F8C7, 0x36415A, .85));
-      const key = new THREE.DirectionalLight(0xE0F8C7, 2.2);
+      const ambient = new THREE.HemisphereLight(paletteColor('light'), paletteColor('secondary'), .85);
+      scene.add(ambient);
+      const key = new THREE.DirectionalLight(paletteColor('light'), 2.2);
       key.position.set(-3, 4, 6); scene.add(key);
-      const fill = new THREE.DirectionalLight(0xB7D894, .65);
+      const fill = new THREE.DirectionalLight(paletteColor('accent'), .65);
       fill.position.set(3, -1, 2); scene.add(fill);
       const pivot = new THREE.Group(); scene.add(pivot);
       const pointerGroup = new THREE.Group(); pivot.add(pointerGroup);
@@ -166,6 +168,7 @@
         const offset = st ? Math.min(Math.max(scroll - st.start, 0), st.end - st.start) : 0;
         resizeObserver?.disconnect();
         stopPointer();
+        window.removeEventListener('shaverly:palettechange', syncPalette);
         ScrollTrigger.removeEventListener('refresh', measure);
         document.removeEventListener('visibilitychange', visibility);
         window.removeEventListener('pagehide', pageHide);
@@ -212,7 +215,7 @@
       silhouette.setAttribute('aria-hidden', 'true');
       silhouette.classList.add('docking-silhouette');
       const path = document.createElementNS(ns, 'path');
-      path.setAttribute('d', cutout); path.setAttribute('fill', '#202734');
+      path.setAttribute('d', cutout); path.setAttribute('fill', paletteColor('primary'));
       silhouette.append(path); frame.append(silhouette);
       const box = path.getBBox();
       if ([box.x-703, box.y-337, box.width-201, box.height-63].some(d => Math.abs(d) > .01)) throw new Error('O SVG mudou: recalibre o recorte antes de animar.');
@@ -319,6 +322,19 @@
         window.removeEventListener('scroll', onPointerScroll);
         pointer.fine.removeEventListener('change', onPointerCapability);
       };
+      function syncPalette() {
+        brandColor.set(paletteColor('accent'));
+        dockColor.set(paletteColor('primary'));
+        ambient.color.set(paletteColor('light'));
+        ambient.groundColor.set(paletteColor('secondary'));
+        key.color.set(paletteColor('light'));
+        fill.color.set(paletteColor('accent'));
+        renderer.setClearColor(dockColor, 0);
+        path.setAttribute('fill', paletteColor('primary'));
+        requestRender();
+      }
+      window.addEventListener('shaverly:palettechange', syncPalette);
+      syncPalette();
       function requestRender() {
         if (disposed || document.hidden || raf) return;
         raf = requestAnimationFrame(now => {

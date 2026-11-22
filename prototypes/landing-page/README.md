@@ -144,3 +144,18 @@ node prototypes/landing-page/tests/pointer-checks.mjs
 ```
 
 A segunda bateria inclui uma espera real de 30 segundos. Seus artefatos ficam por padrão em `/tmp/shaverly-pointer-checks/`. Ambos os comandos aceitam URL do protótipo, endpoint de depuração e diretório de artefatos como argumentos. `window.shaverlyDebug.snapshot()` inclui orientação e luz; `window.shaverlyHintDebug.snapshot()` fornece o estado do aviso quando `?debug=1` estiver ativo.
+
+
+## Comparação de paletas
+
+O seletor fixo “Paleta”, no canto superior esquerdo, troca somente as cores sem alterar o conteúdo, o layout ou a abertura. A escolha é lembrada neste navegador; se o armazenamento estiver indisponível, a troca funciona durante a visita. Sem JavaScript, permanece a paleta original.
+
+- **1 · Original:** `#202734`, `#36415A`, `#B7D894`, `#E0F8C7`.
+- **2 · Petróleo e laranja:** fundo `#303841`, superfícies `#76ABAE`, texto claro `#EFE8DD` e destaque `#FF5722`. Textos pequenos e fundos de botões usam o azul esverdeado para manter legibilidade; laranja aparece nos contornos, ícones e bigode 3D. O SVG oficial permanece intacto.
+
+- **3 · Verde oliva:** fundo `#455230`, superfícies `#637545`, texto claro `#EBEBD8` e destaque `#9BA685`.
+- **4 · Oliva e dourado:** fundo `#28301C`, superfícies `#323D25`, texto claro `#D2CF9A` e destaque `#9A7E3B`.
+- **5 · Azul e areia:** fundo `#579BB1`, superfícies `#E1D7C6`, destaque `#ECE8DD` e texto claro `#F8F4EA`.
+- **6 · Grafite e sálvia:** fundo `#393E46`, superfícies `#6D9886`, destaque `#F2E7D5` e texto claro `#F7F7F7`.
+
+Para acrescentar uma opção, adicione um registro em `palettes.js` com um `id` único, `label` e todos os tokens de `colors`. O seletor é preenchido automaticamente. `script.js` acompanha o evento de troca para atualizar o material, as luzes e a silhueta de encaixe, sem reiniciar a animação.
