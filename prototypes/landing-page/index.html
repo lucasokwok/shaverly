@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Conheça a proposta do Shaverly: agendamentos, clientes e profissionais em uma plataforma de gestão para barbearias.">
+  <meta name="theme-color" content="#202734">
+  <title>Shaverly — Seu negócio no ritmo certo.</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+  <script type="importmap">
+    {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}
+  </script>
+  <script src="script.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#inicio">Pular para o conteúdo</a>
+  <p class="scroll-hint" aria-hidden="true" hidden>Role para baixo para continuar.</p>
+  <span class="sr-only" data-scroll-status role="status" aria-live="polite" aria-atomic="true"></span>
+  <main id="conteudo" tabindex="-1">
+  <div class="opening" data-opening>
+  <div class="opening-canvas" aria-hidden="true"></div>
+  <button class="skip-intro" type="button">Pular abertura</button>
+
+    <section class="hero wrap" id="inicio" tabindex="-1" aria-labelledby="hero-title">
+      <div class="brand-stage" data-brand-stage>
+        <div class="stage-brand">
+          <!-- O SVG oficial permanece intacto; o recorte é medido para a transição 3D. -->
+          <img data-logo-target src="../../assets/branding/logos/shaverly-logo.svg" width="2000" height="460" alt="Shaverly" fetchpriority="high">
+          <h1 id="hero-title" tabindex="-1">Seu negócio no ritmo certo.</h1>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <header class="header wrap">
+    <nav aria-label="Navegação principal">
+      <a href="#funcionalidades">Funcionalidades</a>
+      <a href="#demonstracao">Por dentro do Shaverly</a>
+    </nav>
+    <a class="button button-outline header-cta" href="#proposta">Conheça a proposta</a>
+  </header>
+
+    <section class="features wrap section-space" id="funcionalidades" aria-labelledby="features-title">
+      <div class="section-heading">
+        <h2 id="features-title">Cuide do corte.<br>Organize o resto.</h2>
+        <p>Uma proposta de gestão que conecta as três partes essenciais da sua rotina.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <svg class="feature-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="5" y="7" width="22" height="21" rx="3"/><path d="M10 4v7m12-7v7M5 15h22m-16 5h4m3 0h4m-11 4h4"/></svg>
+          <h3>Agenda no lugar.</h3>
+          <p>Visualize os agendamentos da barbearia e organize os horários de atendimento.</p>
+          <span class="feature-category">Gestão de agendamentos</span>
+        </article>
+        <article class="feature-card">
+          <svg class="feature-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="16" cy="11" r="5"/><path d="M6 28v-3a10 10 0 0 1 20 0v3M9 28h14"/></svg>
+          <h3>Cada cliente, por perto.</h3>
+          <p>Mantenha os cadastros e o histórico de atendimentos organizados na sua barbearia.</p>
+          <span class="feature-category">Organização dos clientes</span>
+        </article>
+        <article class="feature-card">
+          <svg class="feature-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="11" r="4"/><path d="M4 27v-3a8 8 0 0 1 16 0v3m2-20a4 4 0 0 1 0 8m2 4a7 7 0 0 1 4 6v2"/></svg>
+          <h3>Equipe em sintonia.</h3>
+          <p>Reúna os profissionais e tenha uma visão mais clara de quem realiza cada atendimento.</p>
+          <span class="feature-category">Gestão de profissionais</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="product section-space" id="demonstracao" aria-labelledby="product-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <h2 id="product-title">Um olhar para a agenda.<br>Uma visão do seu dia.</h2>
+          <p>Horários e profissionais lado a lado, para visualizar a rotina de atendimentos.</p>
+        </div>
+        <figure class="product-figure">
+          <figcaption id="demo-caption"><span>Uma ideia de como tudo se conecta</span><span class="demo-label">Demonstração ilustrativa</span></figcaption>
+          <div class="dashboard" aria-describedby="demo-disclaimer schedule-help">
+            <aside class="dashboard-sidebar" aria-label="Seções ilustradas do painel">
+              <img src="../../assets/branding/logos/shaverly-logo.svg" width="2000" height="460" alt="Shaverly" loading="lazy">
+              <ul><li class="sidebar-selected">Agenda</li><li>Clientes</li><li>Profissionais</li></ul>
+              <p>Seu dia, organizado.</p>
+            </aside>
+            <div class="dashboard-main">
+              <div class="dashboard-heading"><div><p>Agenda da barbearia</p><h3>Quinta-feira, 12 de novembro</h3></div><span class="view-label">Visão do dia</span></div>
+              <div class="schedule-region" role="region" aria-label="Agenda ilustrativa por profissional. Role horizontalmente em telas pequenas." tabindex="0">
+                <table class="schedule">
+                  <caption class="sr-only">Exemplo fictício de atendimentos entre 9h e 11h</caption>
+                  <thead><tr><th scope="col"><span class="sr-only">Horário</span></th><th scope="col"><span class="avatar">RA</span>Rafael Alves</th><th scope="col"><span class="avatar">LM</span>Lucas Martins</th><th scope="col"><span class="avatar">BC</span>Bruno Costa</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row">09:00</th><td><div class="appointment"><span>09:00 – 09:45</span><strong>Pedro Santos</strong><span>Corte + barba</span></div></td><td><div class="appointment appointment-dark"><span>09:00 – 09:30</span><strong>André Lima</strong><span>Corte</span></div></td><td class="open-slot"><span>Horário livre</span></td></tr>
+                    <tr><th scope="row">10:00</th><td class="open-slot"><span>Horário livre</span></td><td><div class="appointment"><span>10:00 – 10:45</span><strong>Felipe Rocha</strong><span>Corte + barba</span></div></td><td><div class="appointment"><span>10:00 – 10:30</span><strong>Marcos Souza</strong><span>Corte</span></div></td></tr>
+                    <tr><th scope="row">11:00</th><td><div class="appointment appointment-dark"><span>11:00 – 11:30</span><strong>Daniel Oliveira</strong><span>Barba</span></div></td><td class="open-slot"><span>Horário livre</span></td><td class="open-slot"><span>Horário livre</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <p class="schedule-help" id="schedule-help">Deslize a agenda para ver os outros profissionais. Pelo teclado, use as setas com a agenda em foco.</p>
+          <p class="demo-disclaimer" id="demo-disclaimer">Exemplo visual com nomes e horários fictícios. Este painel é estático e não realiza agendamentos.</p>
+        </figure>
+      </div>
+    </section>
+
+    <section class="closing wrap section-space" id="proposta" aria-labelledby="closing-title">
+      <div><p class="intro">A proposta do Shaverly</p><h2 id="closing-title">Mais espaço para<br>o seu melhor trabalho.</h2></div>
+      <div class="closing-copy"><p>Uma plataforma pensada para organizar a gestão e acompanhar o ritmo da sua barbearia.</p><a class="button button-primary" href="#demonstracao">Explore a demonstração</a><span class="prototype-note">Protótipo visual em desenvolvimento.</span></div>
+    </section>
+  </main>
+  <footer class="footer wrap"><a class="brand" href="#inicio" aria-label="Shaverly — voltar ao início"><img src="../../assets/branding/logos/shaverly-logo.svg" width="2000" height="460" alt="Shaverly" loading="lazy"></a><p>Gestão no seu ritmo.</p><a href="#inicio">Voltar ao início</a></footer>
+</body>
+</html>
