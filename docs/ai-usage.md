@@ -1,6 +1,6 @@
 # Shaverly — Registro de uso de IA na engenharia
 
-> Este documento registra contribuição da IA, decisão humana e fundamentos utilizados. Atualizado em 19/11/2026.
+> Este documento registra contribuição da IA, decisão humana e fundamentos utilizados. Atualizado em 22/11/2026.
 
 ## IA-001 — Descoberta dos atores que criam agendamentos
 
@@ -100,3 +100,26 @@
 - **Validação:** conteúdo dos quatro recursos preservado integralmente, verificado por SHA-256 antes e depois da movimentação. Os registros anteriores de uso da IA foram preservados.
 - **Limitações:** não foram inspecionadas nem modificadas geometrias, materiais, texturas ou animações; separação das lâminas, orientação, escala, origem, sincronização com máscara, responsividade, desempenho e alternativa para movimento reduzido permanecem pendentes.
 - **Escopo:** nenhuma animação, interface ou código de aplicação foi implementado; nenhuma dependência ou tecnologia foi adicionada. Este registro não confirma Q-007 dos requisitos.
+
+## Registro de identidade visual — 22/11/2026
+
+> Registro inicial: a pendência de aprovação da Inter foi resolvida na confirmação posterior registrada abaixo.
+
+- **Etapa:** documentação da paleta e do sistema tipográfico do Shaverly.
+- **Decisões humanas confirmadas:** aprovação da paleta Primary Dark (`#202734`), Secondary Dark (`#36415A`), Accent Green (`#B7D894`) e Light Green (`#E0F8C7`); escolha da Paytone One como fonte principal; manutenção da Inter como candidata à fonte secundária, sem aprovação oficial.
+- **Contribuições da IA:** sugestões de distribuição e aplicação das cores; análise da combinação entre a presença visual da Paytone One e a neutralidade e legibilidade da Inter; recomendação da Inter para textos e interfaces; organização e formalização das diretrizes nos documentos de design.
+- **Separação entre decisão e sugestão:** a paleta e a fonte principal estão aprovadas. A Inter permanece recomendada, e os exemplos de aplicação não fixam regras definitivas por componente. Novas cores oficiais exigem aprovação da equipe.
+- **Artefatos resultantes:** [visão geral da identidade visual](design/brand-guidelines.md), [paleta de cores](design/colors.md) e [sistema tipográfico](design/typography.md). O [registro de animações](design/landing-animation.md) permanece preservado e referenciado.
+- **Relação com as aulas:**
+  - *Engineering Shared Understanding*: comunicação clara e registro de decisões compartilhadas, distinguindo aprovação humana, recomendação e pendência.
+  - *Designing for Evolution*: escolhas visuais consistentes, com responsabilidades documentais separadas para facilitar refinamentos e evolução futura.
+  - *Software as a Product*: construção de uma identidade orientada à experiência do usuário, equilibrando personalidade da marca e legibilidade nas tarefas do produto.
+- **Limitações e pendências:** aprovação da fonte secundária; refinamento de aplicações por componente e da escala tipográfica; avaliação de legibilidade e contraste em futuras interfaces. Os conceitos e as pendências técnicas de animação continuam com os estados anteriormente registrados.
+- **Escopo:** trabalho exclusivamente documental. Nenhum código de aplicação, componente ou frontend foi gerado; nenhuma fonte ou dependência foi instalada; SVGs, modelos 3D e requisitos funcionais foram preservados; nenhuma stack foi definida e nenhum commit foi criado.
+
+## Aprovação da fonte secundária Inter — 22/11/2026
+
+- **Decisão humana confirmada:** a equipe aprovou a Inter como fonte secundária do Shaverly. Esta confirmação resolve a pendência do registro inicial de identidade visual; Paytone One permanece como fonte principal aprovada.
+- **Contribuição da IA:** atualização do status em [tipografia](design/typography.md) e nas [diretrizes da marca](design/brand-guidelines.md), preservando o histórico da recomendação e da decisão humana.
+- **Pendências:** refinamento das aplicações por componente e da escala tipográfica; avaliação de legibilidade e contraste em futuras interfaces.
+- **Escopo:** atualização exclusivamente documental, sem geração de código, instalação de fontes ou dependências, alteração de recursos visuais ou criação de commits.
