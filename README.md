@@ -14,8 +14,9 @@ O projeto acadêmico está em fase inicial de levantamento de requisitos. Tecnol
 - [Requisitos e decisões de produto](docs/requirements.md)
 - [Registros de uso da IA e relações com as aulas](docs/ai-usage.md)
 - [Contexto e termos do domínio](CONTEXT.md)
+- [Visão geral da arquitetura conceitual](docs/architecture/overview.md)
 
-Em `docs/`, as pastas `architecture/` e `adr/` estão reservadas para futuros documentos de arquitetura e registros de decisões arquiteturais. As decisões de produto confirmadas vão até RD-006; Q-007 permanece em aberto.
+Em `docs/`, a pasta `architecture/` contém a visão geral da arquitetura conceitual (sem escolha de stack), e a pasta `adr/` segue reservada para futuros registros de decisões arquiteturais. As decisões de produto confirmadas vão até RD-006; Q-007 permanece em aberto.
 
 ## Protótipo visual da landing page — V0.3
 
