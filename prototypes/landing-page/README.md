@@ -15,7 +15,7 @@ A abertura requer HTTP, WebGL2 e acesso ao CDN. Abrir `index.html` diretamente p
 ## Arquivos e bibliotecas experimentais
 
 - `index.html`: hero com a logo oficial centralizada e apenas o slogan “Seu negócio no ritmo certo.” abaixo. Navegação após o hero; funcionalidades, agenda ilustrativa e CTA final preservados. Inclui canvas, botão de pular abertura (visível ao foco) e mapa de módulos.
-- `styles.css`: identidade visual aprovada, hero centralizado com altura de viewport, responsividade e estilos da abertura. A composição é a mesma em desktop e smartphones, sem painel de fundo ou botões no hero.
+- `styles.css`: paleta oficial, hero centralizado com altura de viewport, responsividade e estilos da abertura. A composição é a mesma em desktop e smartphones, sem painel de fundo ou botões no hero.
 - `script.js`: carregamento opcional, medição do recorte, renderização sob demanda, timeline reversível e alternativas estáticas.
 - `fonts/`: Paytone One Regular e Inter variável, com suas licenças SIL Open Font License. Fontes obtidas do repositório oficial [Google Fonts](https://github.com/google/fonts), pastas `ofl/paytoneone` e `ofl/inter`.
 
@@ -30,9 +30,9 @@ São ferramentas experimentais desta versão, sem definição da stack ou arquit
 
 ## Sequência
 
-1. Um bigode centralizado ocupa a abertura, sobre `#202734`. Não há rotação automática contínua.
+1. Um bigode centralizado ocupa a abertura, sobre `#F6F2E7`. Não há rotação automática contínua.
 2. Ao rolar, uma timeline GSAP com `scrub: true` reduz uniformemente a escala, ajusta a orientação e move o modelo até a região medida na logo. A abertura fica temporariamente fixada por uma distância de rolagem equivalente a 1,5 alturas da seção de abertura; a rolagem nativa não é interceptada.
-3. Após o modelo chegar frontalmente ao destino, sua cor transiciona para Primary Dark e o canvas perde opacidade enquanto a logo oficial e uma silhueta extraída de seu próprio recorte aparecem. A silhueta transitória se dissolve no recorte real. Não há deformação da malha nem substituição do SVG por texto.
+3. Após o modelo chegar frontalmente ao destino, sua cor transiciona para Linho e o canvas perde opacidade enquanto a logo oficial e uma silhueta extraída de seu próprio recorte aparecem. A silhueta transitória se dissolve no recorte real. Não há deformação da malha nem substituição do SVG por texto.
 4. Depois do encaixe, somente o slogan é revelado sob a logo. A navegação e as demais seções ficam após o hero, disponíveis ao continuar a rolagem, sem animações adicionais.
 
 A mesma timeline funciona ao contrário. Não existe loop permanente de renderização: solicita-se um frame quando a pose ou o tamanho muda. O DPR é limitado a 1,25 em ponteiros de toque e 1,5 nos demais casos; não há pós-processamento, sombras ou outros modelos. Recursos de GPU, observador de tamanho e handlers da cena são liberados ao cancelar a abertura, trocar para movimento reduzido, perder o contexto WebGL ou sair da página.
@@ -41,7 +41,7 @@ A mesma timeline funciona ao contrário. Não existe loop permanente de renderiz
 
 O `mustache.glb` tem 83.760 bytes, uma malha, 1.500 vértices e 2.816 triângulos. Não tem texturas, animações ou extensões de compressão. A transformação original da cena converte os eixos; os limites mundiais medidos pelo Three.js têm dimensões aproximadas de `2,253266 × 0,652577 × 0,202000`.
 
-O material original é quase preto (`baseColorFactor` RGB próximo de `0,001027`), com metalicidade zero e rugosidade aproximada de `0,5482`. Para tornar o volume legível no fundo escuro, sua cor é alterada **apenas em memória** para Accent Green, preservando geometria e demais propriedades. Luz hemisférica e duas luzes direcionais suaves usam a paleta aprovada.
+O material original é quase preto (`baseColorFactor` RGB próximo de `0,001027`), com metalicidade zero e rugosidade aproximada de `0,5482`. Para tornar o volume legível no protótipo, sua cor é alterada **apenas em memória** para Café, preservando geometria e demais propriedades. Luz hemisférica e duas luzes direcionais suaves usam cores próprias de renderização.
 
 O SVG oficial tem `viewBox="105 145 2000 460"`, sem transformações nos caminhos. O recorte do bigode é o subcaminho de índice 5 no caminho com `fill-rule="evenodd"`. Seus limites medidos são:
 
@@ -93,7 +93,7 @@ A agenda contém apenas nomes e horários fictícios. Não há cadastro, pagamen
 
 O hero continua contendo somente a logo centralizada e o slogan. A V0.3 refinou iluminação, orientação inicial, redução proporcional de escala, duração do pin e transição do modelo para o recorte oficial. A rolagem controla a timeline diretamente, sem atraso de scrub numérico. O slogan entra com deslocamento de apenas 8 px após o encaixe.
 
-A navegação mobile segue agora a mesma ordem visual e de teclado. Os links têm áreas de toque de pelo menos 44 px, os botões e links possuem feedback discreto de hover/pressão e o contorno dos botões usa Accent Green. Os textos dos cards passaram a 16 px e os horários da agenda permanecem visíveis ao rolar horizontalmente. Os cards continuam informativos, sem movimentos que sugiram ação de clique.
+A navegação mobile segue agora a mesma ordem visual e de teclado. Os links têm áreas de toque de pelo menos 44 px, os botões e links possuem feedback discreto de hover/pressão e o contorno dos botões usa Oliva Claro. Os textos dos cards passaram a 16 px e os horários da agenda permanecem visíveis ao rolar horizontalmente. Os cards continuam informativos, sem movimentos que sugiram ação de clique.
 
 O canvas só tem seu buffer redimensionado quando tamanho ou DPR mudam. A saída da página cancela a abertura mesmo durante o carregamento. Resultados atrasados após cancelamento não reativam a cena nem sobrescrevem o estado estático. Nenhuma geometria ou textura derivada foi produzida.
 
@@ -146,16 +146,6 @@ node prototypes/landing-page/tests/pointer-checks.mjs
 A segunda bateria inclui uma espera real de 30 segundos. Seus artefatos ficam por padrão em `/tmp/shaverly-pointer-checks/`. Ambos os comandos aceitam URL do protótipo, endpoint de depuração e diretório de artefatos como argumentos. `window.shaverlyDebug.snapshot()` inclui orientação e luz; `window.shaverlyHintDebug.snapshot()` fornece o estado do aviso quando `?debug=1` estiver ativo.
 
 
-## Comparação de paletas
+## Cores
 
-O seletor fixo “Paleta”, no canto superior esquerdo, troca somente as cores sem alterar o conteúdo, o layout ou a abertura. A escolha é lembrada neste navegador; se o armazenamento estiver indisponível, a troca funciona durante a visita. Sem JavaScript, permanece a paleta original.
-
-- **1 · Original:** `#202734`, `#36415A`, `#B7D894`, `#E0F8C7`.
-- **2 · Petróleo e laranja:** fundo `#303841`, superfícies `#76ABAE`, texto claro `#EFE8DD` e destaque `#FF5722`. Textos pequenos e fundos de botões usam o azul esverdeado para manter legibilidade; laranja aparece nos contornos, ícones e bigode 3D. O SVG oficial permanece intacto.
-
-- **3 · Verde oliva:** fundo `#455230`, superfícies `#637545`, texto claro `#EBEBD8` e destaque `#9BA685`.
-- **4 · Oliva e dourado:** fundo `#28301C`, superfícies `#323D25`, texto claro `#D2CF9A` e destaque `#9A7E3B`.
-- **5 · Azul e areia:** fundo `#579BB1`, superfícies `#E1D7C6`, destaque `#ECE8DD` e texto claro `#F8F4EA`.
-- **6 · Grafite e sálvia:** fundo `#393E46`, superfícies `#6D9886`, destaque `#F2E7D5` e texto claro `#F7F7F7`.
-
-Para acrescentar uma opção, adicione um registro em `palettes.js` com um `id` único, `label` e todos os tokens de `colors`. O seletor é preenchido automaticamente. `script.js` acompanha o evento de troca para atualizar o material, as luzes e a silhueta de encaixe, sem reiniciar a animação.
+O protótipo usa somente a [paleta oficial](../../docs/design/colors.md), definida como variáveis no início de `styles.css`. O seletor de comparação foi removido em 27/11/2026, após a escolha da opção 4B. A logo branca é escurecida por filtro CSS, sem alterar o SVG.
