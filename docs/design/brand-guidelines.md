@@ -1,6 +1,6 @@
 # Shaverly — Diretrizes de identidade visual
 
-> Decisões registradas em 22/11/2026. Este documento orienta futuras implementações; não representa uma interface implementada.
+> Decisões registradas em 22/11/2026; paleta atualizada em 27/11/2026. Este documento orienta futuras implementações; não representa uma interface implementada.
 
 A identidade do Shaverly deve transmitir minimalismo e modernidade, sofisticação e confiança, tecnologia com personalidade e uma experiência visual limpa e agradável. A composição deve equilibrar fundos escuros e superfícies claras.
 
@@ -8,7 +8,8 @@ A identidade do Shaverly deve transmitir minimalismo e modernidade, sofisticaç�
 
 | Tema | Status | Referência |
 |---|---|---|
-| Paleta de quatro cores | Aprovada pela equipe | [Paleta e aplicações](colors.md) |
+| Paleta oliva, linho e café | Definida em 27/11/2026 | [Paleta e aplicações](colors.md) |
+| Cores de status, prioridade e gráficos | Definidas em 27/11/2026 | [Cores operacionais](operational-colors.md) |
 | Paytone One como fonte principal | Aprovada pela equipe | [Sistema tipográfico](typography.md) |
 | Inter como fonte secundária | Aprovada pela equipe | [Sistema tipográfico](typography.md#fonte-secundária-aprovada-inter) |
 | Bigode encaixando na logo | Conceito principal selecionado | [Animações da landing page](landing-animation.md) |

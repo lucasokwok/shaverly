@@ -175,3 +175,15 @@
 - **Verificação:** nova bateria nativa de navegador em `tests/pointer-checks.mjs`: visão traseira sem botões, giros nos três eixos, luz, início de scroll durante suavização, encaixe após rotação, reversão, retorno ao topo, toque e movimento reduzido. O aviso foi validado com espera real de 30 segundos; pausa de visibilidade e relógio reduzido foram simulados separadamente. Capturas do verso, transição e aviso inspecionadas; nenhuma exceção não tratada nessa bateria. A regressão geral também passou nas sete larguras entre 320 e 1920 px, com navegação e alternativas de falha preservadas.
 - **Ajustes de verificação:** o teste de carga geral passou a aguardar o estado esperado de falha de renderização, que pode ocorrer no frame posterior ao estado `ready`; as consultas de navegação toleram o documento ainda não criado. Scripts de simulação são removidos mesmo se uma asserção falhar. Esses casos são sincronização da automação, não defeitos atribuídos à landing.
 - **Artefatos e limites:** [planejamento atualizado](design/pointer-interaction.md), instruções do protótipo e registro de animação. Validação em Chromium/WebGL por software; sensibilidade em dispositivos físicos, Safari/iOS e leitores de tela reais permanecem pendentes. Sem dependências adicionais, requisitos alterados, mudança de identidade, arquitetura definitiva ou commits automáticos.
+
+## Nova paleta oficial — 27/11/2026
+
+- **Decisão humana:** adotar a opção 4B · Linho, oliva e café como paleta do projeto, substituindo a de 22/11/2026. A escolha partiu da preferência pelo verde oliva, com pedidos de um tom branco, de um marrom mais escuro no bigode e de uma agenda branca para facilitar a leitura.
+- **Contribuição da IA:** propostas das variações 4A, 4B e 4C no protótipo; separação da cor do bigode; painel branco da agenda na 4B; atualização da [documentação da paleta](design/colors.md).
+- **Verificação e limites:** variações inspecionadas por capturas em desktop. A agenda branca não foi revisada em mobile nem submetida novamente às baterias de teste. A bateria geral falha no teste de teclado porque não considera o seletor de paleta. Permanece pendente uma versão oficial da logo para fundo claro.
+
+## Cores operacionais e paleta fixa no protótipo — 27/11/2026
+
+- **Decisão humana:** fixar o protótipo na paleta oficial e definir cores de status, prioridade e demais usos operacionais para dashboards.
+- **Contribuição da IA:** remoção do seletor e das paletas de comparação; tokens em [`tokens.css`](design/tokens.css); [cores operacionais](design/operational-colors.md) e mostruário. Os nomes de status de agendamento e de prioridade são propostas ainda não validadas pela equipe.
+- **Verificação e limites:** cores categóricas e sequenciais verificadas por script e contraste calculado para as semânticas; divergente sem validação automática e sem tema escuro. Com a paleta fixa, as baterias geral e de ponteiro passaram em Chromium, incluindo o teste de teclado, e a agenda mobile foi inspecionada por captura.

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shaverly — Cores operacionais</title>
+<link rel="stylesheet" href="../../docs/design/tokens.css">
+<style>
+body { margin: 0; padding: 2rem 1.25rem; background: var(--linen); color: var(--ink); font: 1rem/1.5 system-ui, sans-serif; }
+main { max-width: 760px; margin: auto; }
+section { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; margin-top: 1rem; }
+h1, h2 { margin: 0; color: var(--olive-dark); } h2 { font-size: 1rem; margin-bottom: .75rem; }
+.row { display: flex; flex-wrap: wrap; gap: .6rem; }
+.badge { display: inline-flex; align-items: center; gap: .45rem; padding: .25rem .7rem; border-radius: 999px; font-size: .875rem; font-weight: 600; }
+.badge::before { content: ""; width: .55rem; height: .55rem; border-radius: 50%; background: currentColor; }
+.success { background: var(--success-soft); color: var(--success-text); } .success::before { background: var(--success-solid); }
+.warning { background: var(--warning-soft); color: var(--warning-text); } .warning::before { background: var(--warning-solid); }
+.serious { background: var(--serious-soft); color: var(--serious-text); } .serious::before { background: var(--serious-solid); }
+.critical { background: var(--critical-soft); color: var(--critical-text); } .critical::before { background: var(--critical-solid); }
+.info { background: var(--info-soft); color: var(--info-text); } .info::before { background: var(--info-solid); }
+.neutral { background: var(--neutral-soft); color: var(--neutral-text); } .neutral::before { background: var(--neutral-solid); }
+ul { display: flex; flex-wrap: wrap; gap: .75rem; list-style: none; margin: 0 0 .75rem; padding: 0; font-size: .75rem; }
+li i { display: block; width: 96px; height: 40px; border-radius: 6px; margin-bottom: .25rem; }
+</style>
+</head>
+<body>
+<main>
+<h1>Cores operacionais</h1>
+<p>Amostras de <code>docs/design/tokens.css</code>.</p>
+<section><h2>Semânticas</h2><div class="row"><span class="badge success">success</span><span class="badge warning">warning</span><span class="badge serious">serious</span><span class="badge critical">critical</span><span class="badge info">info</span><span class="badge neutral">neutral</span></div></section>
+<section><h2>Status de agendamento (proposta)</h2><div class="row"><span class="badge neutral">Agendado</span><span class="badge info">Confirmado</span><span class="badge warning">Em atendimento</span><span class="badge success">Concluído</span><span class="badge serious">Não compareceu</span><span class="badge critical">Cancelado</span></div></section>
+<section><h2>Prioridade</h2><div class="row"><span class="badge neutral">▮ Baixa</span><span class="badge warning">▮▮ Média</span><span class="badge serious">▮▮▮ Alta</span><span class="badge critical">▮▮▮▮ Urgente</span></div></section>
+<section><h2>Gráficos — categóricas</h2><ul><li><i style="background:var(--chart-1)"></i>chart-1</li><li><i style="background:var(--chart-2)"></i>chart-2</li><li><i style="background:var(--chart-3)"></i>chart-3</li><li><i style="background:var(--chart-4)"></i>chart-4</li><li><i style="background:var(--chart-5)"></i>chart-5</li><li><i style="background:var(--chart-6)"></i>chart-6</li><li><i style="background:var(--chart-other)"></i>chart-other</li></ul></section>
+<section><h2>Gráficos — sequencial e divergente</h2><ul><li><i style="background:var(--chart-seq-1)"></i>chart-seq-1</li><li><i style="background:var(--chart-seq-2)"></i>chart-seq-2</li><li><i style="background:var(--chart-seq-3)"></i>chart-seq-3</li><li><i style="background:var(--chart-seq-4)"></i>chart-seq-4</li><li><i style="background:var(--chart-seq-5)"></i>chart-seq-5</li></ul><ul><li><i style="background:var(--chart-div-low-2)"></i>chart-div-low-2</li><li><i style="background:var(--chart-div-low-1)"></i>chart-div-low-1</li><li><i style="background:var(--chart-div-mid)"></i>chart-div-mid</li><li><i style="background:var(--chart-div-high-1)"></i>chart-div-high-1</li><li><i style="background:var(--chart-div-high-2)"></i>chart-div-high-2</li></ul></section>
+</main>
+</body>
+</html>

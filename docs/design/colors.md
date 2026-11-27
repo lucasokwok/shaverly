@@ -1,41 +1,44 @@
 # Shaverly — Paleta de cores
 
-> Status: paleta oficial aprovada pela equipe, registrada em 22/11/2026.
+> Status: paleta oficial do projeto, definida em 27/11/2026 a partir da opção **4B · Linho, oliva e café** do protótipo. Substitui a paleta azul e verde registrada em 22/11/2026.
 
 ## Cores oficiais
 
-| Nome | HEX | Descrição e função |
+| Nome | HEX | Função |
 |---|---|---|
-| Primary Dark | `#202734` | Azul-escuro profundo. Principal cor institucional da marca, para fundos escuros, títulos, textos de destaque e elementos estruturais. |
-| Secondary Dark | `#36415A` | Azul-acinzentado. Para superfícies secundárias, cards escuros, elementos de navegação e textos de apoio. |
-| Accent Green | `#B7D894` | Verde suave. Destaque para botões principais, chamadas para ação (CTAs), ícones e elementos interativos importantes. |
-| Light Green | `#E0F8C7` | Verde-claro. Para fundos suaves, seções claras, elementos destacados e contrastes com superfícies escuras. |
+| Linho | `#F6F2E7` | Fundo principal e texto sobre oliva. |
+| Oliva Escuro | `#333D1F` | Textos sobre Linho e fundo de seções escuras. |
+| Oliva Ação | `#55602F` | Botões principais, itens selecionados, textos de destaque e marcação dos agendamentos. |
+| Oliva Médio | `#66713F` | Superfícies secundárias e bordas. |
+| Oliva Claro | `#7D8750` | Ícones, contornos e foco. Não usar em texto pequeno. |
+| Café | `#3B2213` | Marrom do bigode 3D. |
+| Branco | `#FFFFFF` | Fundo da agenda e de áreas operacionais. |
 
 Não adicionar novas cores à paleta oficial sem aprovação da equipe.
 
-## Diretrizes de utilização
+## Áreas operacionais
 
-As quatro cores e suas funções gerais estão aprovadas. Os exemplos abaixo são **aplicações sugeridas**, e não especificações definitivas por componente. A distribuição exata poderá ser refinada posteriormente.
+Em agendas, tabelas e outras telas de trabalho, a legibilidade vem primeiro: fundo Branco, linhas neutras e um único estilo de agendamento. Cor serve para orientar a leitura, como no item selecionado e na faixa lateral do agendamento, e não para decorar.
 
-### Landing page
+| Neutro de apoio | HEX | Uso na agenda |
+|---|---|---|
+| Texto | `#252A1B` | Texto principal. |
+| Texto secundário | `#5C6152` | Horários, legendas e horários livres. |
+| Borda | `#DADCD2` | Contorno do painel. |
+| Linha | `#E3E4DD` | Divisões da grade. |
+| Superfície de agendamento | `#F4F5EF` | Fundo dos agendamentos. |
+| Superfície de avatar | `#ECEEE3` | Fundo das iniciais. |
 
-- Hero com fundo Primary Dark (`#202734`).
-- Títulos e elementos claros sobre superfícies escuras, utilizando Light Green (`#E0F8C7`) como possibilidade dentro da paleta.
-- CTAs em Accent Green (`#B7D894`), com texto Primary Dark (`#202734`).
-- Seções alternadas entre fundos neutros e Light Green (`#E0F8C7`). A menção a fundos neutros não aprova novas cores nem define valores adicionais.
-- Superfícies secundárias em Secondary Dark (`#36415A`).
+## Aplicação na landing page
 
-### Interface do sistema
+- Hero e funcionalidades com fundo Linho e textos em Oliva Escuro.
+- Seção da agenda com fundo Oliva Escuro e painel Branco. Textos de apoio sobre esse fundo usam `#E4E1CC`.
+- CTAs em Oliva Ação com texto Linho.
 
-- Textos principais em Primary Dark (`#202734`).
-- Elementos secundários em Secondary Dark (`#36415A`).
-- Destaques e ações importantes em Accent Green (`#B7D894`).
-- Cards e estados visuais suaves utilizando Light Green (`#E0F8C7`).
-
-As combinações deverão ser avaliadas no contexto de uso, considerando legibilidade e contraste antes da implementação. Este registro não representa validação de acessibilidade de componentes.
+A implementação de referência está em [`styles.css`](../../prototypes/landing-page/styles.css). As cores das luzes da cena 3D são ajustes de renderização e não integram a paleta.
 
 ## Limites e referências
 
-Não foram definidas cores adicionais para estados semânticos, variações de interação ou componentes específicos. Essas definições ficam para refinamento posterior, respeitando a aprovação da equipe para novas cores.
+Estados, prioridades e gráficos seguem as [cores operacionais](operational-colors.md). Não foi definida uma variação oficial da logo para fundo claro. O protótipo escurece a logo branca com um filtro CSS, solução provisória que não altera os SVGs. As combinações devem ser avaliadas no contexto de uso; este registro não representa validação de acessibilidade de componentes.
 
 Consulte a [visão geral da identidade](brand-guidelines.md), inclusive a distinção entre a paleta oficial e as cores presentes nos SVGs existentes, e o [sistema tipográfico](typography.md).
