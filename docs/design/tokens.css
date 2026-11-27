@@ -1,0 +1,50 @@
+/* Shaverly — tokens de cor. Documentação: colors.md e operational-colors.md */
+:root {
+  /* Marca */
+  --linen: #F6F2E7;
+  --olive-dark: #333D1F;
+  --olive-action: #55602F;
+  --olive-mid: #66713F;
+  --olive-light: #7D8750;
+  --coffee: #3B2213;
+  --white: #FFFFFF;
+
+  /* Neutros operacionais */
+  --ink: #252A1B;
+  --ink-muted: #5C6152;
+  --border: #DADCD2;
+  --line: #E3E4DD;
+  --surface-appointment: #F4F5EF;
+  --surface-avatar: #ECEEE3;
+
+  /* Semânticas: -solid para ícones e marcas, -text sobre -soft ou branco */
+  --success-solid: #1E7F52;  --success-text: #14603D;  --success-soft: #E5F4EB;
+  --warning-solid: #B7791F;  --warning-text: #7A4E0B;  --warning-soft: #FCF1D9;
+  --serious-solid: #C4521A;  --serious-text: #93390C;  --serious-soft: #FCE9DE;
+  --critical-solid: #B3261E; --critical-text: #8F1D17; --critical-soft: #FBE7E5;
+  --info-solid: #2563A8;     --info-text: #1B4B82;     --info-soft: #E6EFF9;
+  --neutral-solid: #6B7062;  --neutral-text: #474B40;  --neutral-soft: #EEEFEA;
+
+  /* Gráficos: categóricas, sempre nesta ordem */
+  --chart-1: #66801F;
+  --chart-2: #3A7BD5;
+  --chart-3: #009B8E;
+  --chart-4: #6F42A8;
+  --chart-5: #C4621A;
+  --chart-6: #A8336A;
+  --chart-other: #6B7062;
+
+  /* Gráficos: sequencial (menor para maior) */
+  --chart-seq-1: #A9B87A;
+  --chart-seq-2: #8C9D58;
+  --chart-seq-3: #718238;
+  --chart-seq-4: #586724;
+  --chart-seq-5: #3F4C17;
+
+  /* Gráficos: divergente (abaixo, neutro, acima) */
+  --chart-div-low-2: #93390C;
+  --chart-div-low-1: #D58A5C;
+  --chart-div-mid: #E6E7E1;
+  --chart-div-high-1: #8C9D58;
+  --chart-div-high-2: #3F4C17;
+}
